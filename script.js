@@ -1,6 +1,3 @@
-// ─────────────────────────────────────
-//  FIREBASE CONFIG
-// ─────────────────────────────────────
 const firebaseConfig = {
   apiKey:            "AIzaSyBuBpkDzmIXwHTg88gwSE48ZW8Hr2ZaFBM",
   authDomain:        "it-325--perez.firebaseapp.com",
@@ -10,25 +7,17 @@ const firebaseConfig = {
   appId:             "1:848518798296:web:c22162160172741089f0ad"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db   = firebase.firestore();
 
-// ─────────────────────────────────────
-//  AUTO-LOGIN CHECK
-//  Runs once when page loads.
-//  If user is already logged in,
-//  skip the login screen entirely
-//  and go straight to dashboard.
-// ─────────────────────────────────────
+
 auth.onAuthStateChanged((user) => {
   const loadingScreen   = document.getElementById('loading-screen');
   const authScreen      = document.getElementById('auth-screen');
   const dashboardScreen = document.getElementById('dashboard-screen');
 
   if (user) {
-    // User is already logged in — skip login, go to dashboard
     db.collection('users').doc(user.uid).get()
       .then((doc) => {
         const data      = doc.exists ? doc.data() : {};
@@ -43,7 +32,6 @@ auth.onAuthStateChanged((user) => {
         document.getElementById('dash-msg').textContent  = 'Welcome back! You are already logged in. ✅';
       })
       .catch(() => {
-        // Firestore error — still show dashboard with Firebase display name
         const nameParts = (user.displayName || '').split(' ');
         loadingScreen.classList.add('hidden');
         authScreen.classList.add('hidden');
@@ -52,15 +40,11 @@ auth.onAuthStateChanged((user) => {
         document.getElementById('dash-msg').textContent  = 'Welcome back! You are already logged in. ✅';
       });
   } else {
-    // No user logged in — show the login/signup screen
     loadingScreen.classList.add('hidden');
     authScreen.classList.remove('hidden');
   }
 });
 
-// ─────────────────────────────────────
-//  GENDER SELECTION
-// ─────────────────────────────────────
 let selectedGender = '';
 
 function selectGender(btn) {
@@ -69,9 +53,6 @@ function selectGender(btn) {
   selectedGender = btn.textContent.replace(/[♂♀⚧]/g, '').trim();
 }
 
-// ─────────────────────────────────────
-//  TAB SWITCHER
-// ─────────────────────────────────────
 function switchTab(tab) {
   const tabs = document.querySelectorAll('.tab-btn');
   tabs[0].classList.toggle('active', tab === 'login');
@@ -83,9 +64,6 @@ function switchTab(tab) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─────────────────────────────────────
-//  PASSWORD TOGGLE
-// ─────────────────────────────────────
 function togglePw(inputId, btn) {
   const input = document.getElementById(inputId);
   if (input.type === 'password') {
@@ -97,9 +75,6 @@ function togglePw(inputId, btn) {
   }
 }
 
-// ─────────────────────────────────────
-//  ERROR HELPER
-// ─────────────────────────────────────
 function showError(id, msg) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -107,9 +82,6 @@ function showError(id, msg) {
   el.classList.toggle('show', !!msg);
 }
 
-// ─────────────────────────────────────
-//  LOADING STATE HELPER
-// ─────────────────────────────────────
 function setLoading(btn, loading, label) {
   btn.disabled = loading;
   btn.innerHTML = loading
@@ -117,9 +89,6 @@ function setLoading(btn, loading, label) {
     : label;
 }
 
-// ─────────────────────────────────────
-//  SIGN UP
-// ─────────────────────────────────────
 function handleSignup(btn) {
   const firstName = document.getElementById('signup-firstname').value.trim();
   const lastName  = document.getElementById('signup-lastname').value.trim();
@@ -177,9 +146,6 @@ function handleSignup(btn) {
     });
 }
 
-// ─────────────────────────────────────
-//  SIGNUP SUCCESS SCREEN
-// ─────────────────────────────────────
 function showSignupSuccess() {
   const panel = document.getElementById('signup-panel');
   panel.innerHTML = `
@@ -199,9 +165,6 @@ function showSignupSuccess() {
   `;
 }
 
-// ─────────────────────────────────────
-//  GO TO LOGIN
-// ─────────────────────────────────────
 function goToLogin() {
   const panel = document.getElementById('signup-panel');
   panel.innerHTML = `
@@ -253,9 +216,6 @@ function goToLogin() {
   switchTab('login');
 }
 
-// ─────────────────────────────────────
-//  LOGIN
-// ─────────────────────────────────────
 function handleLogin(btn) {
   const email    = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-pw').value;
@@ -290,9 +250,6 @@ function handleLogin(btn) {
     });
 }
 
-// ─────────────────────────────────────
-//  GOOGLE SIGN-IN
-// ─────────────────────────────────────
 function handleGoogle(btn) {
   const provider = new firebase.auth.GoogleAuthProvider();
   setLoading(btn, true, 'Connecting…');
@@ -330,9 +287,6 @@ function handleGoogle(btn) {
     });
 }
 
-// ─────────────────────────────────────
-//  SHOW DASHBOARD
-// ─────────────────────────────────────
 function showDashboard(firstName, lastName) {
   document.getElementById('auth-screen').classList.add('hidden');
   document.getElementById('dashboard-screen').classList.remove('hidden');
@@ -341,9 +295,6 @@ function showDashboard(firstName, lastName) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─────────────────────────────────────
-//  LOGOUT
-// ─────────────────────────────────────
 function handleLogout() {
   auth.signOut().then(() => {
     document.getElementById('login-email').value = '';
@@ -358,9 +309,6 @@ function handleLogout() {
   });
 }
 
-// ─────────────────────────────────────
-//  FIREBASE ERROR MESSAGES
-// ─────────────────────────────────────
 function getFirebaseError(code) {
   const errors = {
     'auth/email-already-in-use':    'That email is already registered. Try logging in.',
@@ -375,4 +323,5 @@ function getFirebaseError(code) {
     'auth/cancelled-popup-request': 'Sign-in was cancelled. Please try again.',
   };
   return errors[code] || 'Something went wrong. Please try again.';
+
 }
