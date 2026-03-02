@@ -1,6 +1,3 @@
-/* ─────────────────────────────────────
-   LOADING SCREEN
-───────────────────────────────────── */
 #loading-screen {
   position: fixed;
   inset: 0;
@@ -52,10 +49,6 @@
   --muted:         #8880AA;
   --input-bg:      #201C3E;
 }
-
-/* ─────────────────────────────────────
-   RESET & BASE
-───────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -82,9 +75,6 @@ body {
   display: none !important;
 }
 
-/* ─────────────────────────────────────
-   BACKGROUND BLOBS
-───────────────────────────────────── */
 .blob {
   position: fixed;
   border-radius: 50%;
@@ -135,9 +125,6 @@ body {
   50%       { transform: translate(-42%, -58%); }
 }
 
-/* ─────────────────────────────────────
-   AUTH SCREEN
-───────────────────────────────────── */
 #auth-screen {
   display: flex;
   flex-direction: column;
@@ -158,9 +145,6 @@ body {
   width: 100%;
 }
 
-/* ─────────────────────────────────────
-   BRAND SIDE
-───────────────────────────────────── */
 .brand-side {
   flex: 1;
   display: flex;
@@ -271,9 +255,6 @@ body {
   background: linear-gradient(135deg, #00D4FF, #00A2FF);
 }
 
-/* ─────────────────────────────────────
-   MOBILE HEADER
-───────────────────────────────────── */
 .mobile-header {
   display: none;
   flex-direction: column;
@@ -298,9 +279,6 @@ body {
   text-align: center;
 }
 
-/* ─────────────────────────────────────
-   AUTH CARD
-───────────────────────────────────── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -329,9 +307,6 @@ body {
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* ─────────────────────────────────────
-   TABS
-───────────────────────────────────── */
 .tab-switcher {
   display: flex;
   background: var(--surface2);
@@ -361,9 +336,6 @@ body {
   box-shadow: 0 4px 16px rgba(108, 59, 255, 0.4);
 }
 
-/* ─────────────────────────────────────
-   FORM PANELS
-───────────────────────────────────── */
 .form-panel {
   display: none;
 }
@@ -392,9 +364,6 @@ body {
   margin-bottom: 18px;
 }
 
-/* ─────────────────────────────────────
-   INPUTS
-───────────────────────────────────── */
 .input-group {
   margin-bottom: 13px;
 }
@@ -461,9 +430,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-/* ─────────────────────────────────────
-   GENDER BUTTONS
-───────────────────────────────────── */
 .gender-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -496,10 +462,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--text);
   box-shadow: 0 0 0 2px rgba(108, 59, 255, 0.2);
 }
-
-/* ─────────────────────────────────────
-   PASSWORD TOGGLE
-───────────────────────────────────── */
 .password-wrapper {
   position: relative;
 }
@@ -527,9 +489,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--text);
 }
 
-/* ─────────────────────────────────────
-   ERROR MESSAGE
-───────────────────────────────────── */
 .error-msg {
   font-size: 12px;
   color: #FF6B8A;
@@ -549,9 +508,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-bottom: 10px;
 }
 
-/* ─────────────────────────────────────
-   PRIMARY BUTTON
-───────────────────────────────────── */
 .btn-primary {
   width: 100%;
   padding: 14px;
@@ -568,8 +524,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: relative;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(108, 59, 255, 0.4);
-  -webkit-appearance: none; /* iOS Safari, older Chrome/Safari */
-  appearance: none;          /* modern standard — everyone else */
+  -webkit-appearance: none; 
+  appearance: none;          
 }
 
 .btn-primary::after {
@@ -600,9 +556,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: none;
 }
 
-/* ─────────────────────────────────────
-   DIVIDER
-───────────────────────────────────── */
 .divider {
   display: flex;
   align-items: center;
@@ -620,9 +573,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: var(--border);
 }
 
-/* ─────────────────────────────────────
-   GOOGLE BUTTON
-───────────────────────────────────── */
 .btn-google {
   width: 100%;
   padding: 12px;
@@ -639,8 +589,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  -webkit-appearance: none;-webkit-appearance: none; /* iOS Safari, older Chrome/Safari */
-  appearance: none;          /* modern standard — everyone else */
+  -webkit-appearance: none;-webkit-appearance: none;
+  appearance: none;        
 }
 
 .btn-google:hover {
@@ -659,9 +609,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: none;
 }
 
-/* ─────────────────────────────────────
-   FORGOT LINK
-───────────────────────────────────── */
 .forgot-link {
   display: block;
   text-align: right;
@@ -678,9 +625,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--accent);
 }
 
-/* ─────────────────────────────────────
-   TERMS
-───────────────────────────────────── */
 .terms {
   font-size: 11px;
   color: var(--muted);
@@ -694,9 +638,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-decoration: none;
 }
 
-/* ─────────────────────────────────────
-   SCROLL FORM
-───────────────────────────────────── */
+
 .scroll-form {
   max-height: 420px;
   overflow-y: auto;
@@ -718,9 +660,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 4px;
 }
 
-/* ─────────────────────────────────────
-   DASHBOARD SCREEN
-───────────────────────────────────── */
 #dashboard-screen {
   min-height: 100vh;
   min-height: 100dvh;
@@ -729,7 +668,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: fadeIn 0.5s ease;
 }
 
-/* Nav */
 .dash-nav {
   display: flex;
   align-items: center;
@@ -761,8 +699,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  -webkit-appearance: none; /* iOS Safari, older Chrome/Safari */
-  appearance: none;          /* modern standard — everyone else */
+  -webkit-appearance: none; 
+  appearance: none;        
 }
 
 .btn-logout:hover {
@@ -774,7 +712,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: scale(0.97);
 }
 
-/* Main */
 .dash-main {
   display: flex;
   align-items: center;
@@ -784,7 +721,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding: 30px 20px;
 }
 
-/* Welcome Card */
 .welcome-card {
   background: var(--surface);
   border: 1px solid rgba(108, 59, 255, 0.35);
@@ -857,10 +793,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--muted);
   line-height: 1.7;
 }
-
-/* ─────────────────────────────────────
-   LOADING SPINNER
-───────────────────────────────────── */
 .spinner {
   display: inline-block;
   width: 18px;
@@ -877,9 +809,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   to { transform: rotate(360deg); }
 }
 
-/* ─────────────────────────────────────
-   RESPONSIVE — TABLET
-───────────────────────────────────── */
 @media (max-width: 900px) {
   .brand-side {
     display: none;
@@ -895,9 +824,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
-/* ─────────────────────────────────────
-   RESPONSIVE — MOBILE
-───────────────────────────────────── */
 @media (max-width: 520px) {
   #auth-screen {
     padding: 16px 12px 40px;
@@ -972,9 +898,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
-/* ─────────────────────────────────────
-   RESPONSIVE — VERY SMALL PHONES
-───────────────────────────────────── */
 @media (max-width: 360px) {
   .card {
     padding: 18px 14px 22px;
@@ -997,4 +920,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .welcome-name {
     font-size: 24px;
   }
+
 }
